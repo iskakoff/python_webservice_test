@@ -24,10 +24,10 @@ class PubMedParser:
         abstract_text_node = pub_med_article.getElementsByTagName("AbstractText")
         # throw an exception if there is no abstracts in the response
         if len(abstract_text_node) <= 0:
-            raise ParseException.ParseException("Wrong PMID.")
+            raise ParseException.ParseException("There is no abstract for the PMID {}.".format(PMID))
         # throw an exception if there is too many abstracts to parse
         if len(abstract_text_node) > 1:
-            raise ParseException.ParseException("Too many abstracts in the response.")
+            raise ParseException.ParseException("Too many abstracts in the response for PMID {}.".format(PMID))
         # get abstract text from the DOM node
         abstract = abstract_text_node[0].firstChild.nodeValue
         return abstract
