@@ -29,6 +29,6 @@ for PMID in sys.argv[1:]:
         json_file.write(reach_result)
         json_file.close()
     except ParseException.ParseException as err:
-        print("There is an parsing error: {0:s}".format(err.message))
+        print("There is a parsing error: {0:s}".format(err.message))
         sys.exit(255)
 
